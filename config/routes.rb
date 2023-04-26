@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  resources :leases
-  resources :tenants
-  resources :apartments
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Apartments routes
+  resources :apartments, only: [:index, :show, :create, :update, :destroy] do
+    resources :leases, only: [:create]
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Tenants routes
+  resources :tenants, only: [:index, :show, :create, :update, :destroy] do
+    resources :leases, only: [:create]
+    resources :apartments, only: [:index]
+  end
+
+  # Leases routes
+  resources :leases, only: [:destroy]
 end

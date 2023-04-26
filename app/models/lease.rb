@@ -3,6 +3,6 @@ class Lease < ApplicationRecord
   belongs_to :tenant
 
   #validations
-  validates :rent, presence :true, numericality: { greater_than_or_equal_to: 0}
+  validates :rent, presence: true, numericality: { greater_than_or_equal_to: 0}
 
 end
