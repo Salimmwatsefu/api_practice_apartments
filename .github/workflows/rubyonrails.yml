@@ -17,14 +17,14 @@ jobs:
       postgres:
         image: postgres:11-alpine
         ports:
-          - "3000:3000"
+          - "5432:5432"
         env:
           POSTGRES_DB: apartments_test
           POSTGRES_USER: sj
           POSTGRES_PASSWORD: mypassword
     env:
       RAILS_ENV: test
-      DATABASE_URL: "postgres://rails:password@localhost:3000/rails_test"
+      DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
