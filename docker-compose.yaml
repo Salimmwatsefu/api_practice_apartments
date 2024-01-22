@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  app:
+    image: sjmwatsefu/apartments-ruby
+    environment:
+      POSTGRES_USER: sj
+      POSTGRES_PASSWD: mypassword
+      POSTGRES_HOST: db
+    ports:
+      - 3000:3000
+  db:
+    image: postgres:alpine3.15
+    environment:
+      POSTGRES_PASSWORD: mypassword
